@@ -1,0 +1,13 @@
+version: '3.8'  # Specifies the Docker Compose file version
+
+services:
+  bun:  # Name of the service
+    build:
+      context: .  # Specifies the directory of the Dockerfile (current directory in this case)
+      target: release  # Specifies the target stage to build
+    ports:
+      - "3000:3000"  # Maps the port 3000 of the container to port 3000 on the host
+    volumes:
+      - .:/usr/src/app  # Mounts the current directory to the working directory in the container
+    environment:
+      - NODE_ENV=production  # Sets environment variables
