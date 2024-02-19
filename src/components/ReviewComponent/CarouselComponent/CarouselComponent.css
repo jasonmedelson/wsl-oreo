@@ -1,0 +1,86 @@
+.carousel {
+    position: relative;
+    width: 100%;
+    height: 300px; /* Fixed height */
+    overflow: hidden;
+    margin: 30px auto;
+}
+
+.image-container {
+    display: flex;
+    height: 100%;
+    transition: transform 0.5s ease;
+}
+
+.image-container img {
+    flex-shrink: 0;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    width: 100%;
+}
+.carouselhold {
+    width: 100%;
+}
+.carouselhold.inactive {
+    display: none;
+}
+.carouselhold.active {
+    display: block;
+}
+
+.left-arrow,
+.right-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 24px;
+    color: black;
+    padding: 5px 10px;
+    border-radius: 50%;
+}
+
+.left-arrow {
+    left: 10px;
+}
+
+.right-arrow {
+    right: 10px;
+}
+
+.left-arrow:hover,
+.right-arrow:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+.image-title-container {
+    position: relative;
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.image-title-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.image-title {
+    text-align: center;
+    margin-top: 0px;
+    font-size: 2em; /* Larger font size */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Example of a more elegant font */
+    color: #d6d6d6; /* Adjusted color */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow for depth */
+    padding: 0px 5px;
+    position: absolute;
+    top: 0;
+    /* left: 0; */
+    left: 50%;
+    transform: translateX(-50%);
+    /* width: 100%; */
+    background: rgba(0, 0, 0, 0.4); /* Semi-transparent background */
+}

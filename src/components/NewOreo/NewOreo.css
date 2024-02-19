@@ -1,0 +1,79 @@
+/* Existing styles... */
+
+.spinner {
+    display: inline-block;
+    vertical-align: middle;
+    width: 25px; /* Adjust as needed */
+    height: 25px; /* Adjust as needed */
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    border-top-color: #09f;
+    animation: spin 1s ease infinite;
+}
+.spacer{
+    width: 10px;
+    display: inline-block;
+}
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+.checklist {
+    list-style: none;
+    padding: 0;
+}
+
+.checklist-item {
+    margin: 10px 0;
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.checklist-item.done {
+    color: green;
+}
+
+.image-preview {
+    max-height: 255px;
+    height: auto;
+    margin: 10px auto;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    object-fit: contain;
+    background: black;
+}
+/* Style the form container */
+.form-container {
+    text-align: left;
+    max-width: 500px; /* Adjust the width as needed */
+    margin: 0 auto; /* Center the form container */
+    padding: 20px;
+}
+
+/* Style the form elements */
+.form-container label,
+.form-container input,
+.form-container button {
+    display: block; /* Make each element take a full row */
+    width: 100%; /* Each element takes the full width of the container */
+    margin-bottom: 10px; /* Spacing between elements */
+}
+.form-container label {
+    font-size: 18px; /* Increase label font size */
+    margin-bottom: 5px; /* Adjust spacing below label */
+}
+
+/* Style the name input field to make it larger */
+.form-container input[type="text"] {
+    padding: 10px; /* Increase padding for larger appearance */
+    font-size: 16px; /* Increase font size in the input field */
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 15px; /* Spacing below the input field */
+}
