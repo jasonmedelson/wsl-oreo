@@ -3,8 +3,9 @@ import "./RatingComponent.css";
 import DataContext from '../../context/DataContext.jsx';
 
 const RatingsComponent = () => {
-  const { firestoreData, getRatings } = useContext(DataContext);
+  const { firestoreData, getRatings, uniqueRaters } = useContext(DataContext);
   console.log(firestoreData)
+  console.log(uniqueRaters)
   const handleSubmit = (event) => {
     event.preventDefault();
     // Handle the form submission logic here

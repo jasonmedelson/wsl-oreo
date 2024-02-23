@@ -6,6 +6,7 @@ import { collection, query, onSnapshot, addDoc, where } from "firebase/firestore
 const DataProvider = ({ children }) => {
   const [data, setData] = useState([]);
   const [ratingsData, setRatingsData] = useState([]);
+  const [uniqueRaters, setUniqueRaters] = useState([]);
 
   useEffect(() => {
     // Query for oreo-types collection
@@ -26,6 +27,8 @@ const DataProvider = ({ children }) => {
         ratingsDocuments.push({ ...doc.data(), id: doc.id });
       });
       setRatingsData(ratingsDocuments);
+      const uniqueRaterSet = new Set(ratingsDocuments.map((rating) => rating.rater));
+      setUniqueRaters(Array.from(uniqueRaterSet));
     });
 
     // Cleanup functions
@@ -69,7 +72,7 @@ const DataProvider = ({ children }) => {
   };
 
   return (
-    <DataContext.Provider value={{ firestoreData: data, storageData: storage, newData: addDocument, addScore: addScore, getRatings: getRatings }}>
+    <DataContext.Provider value={{ firestoreData: data, storageData: storage, newData: addDocument, addScore: addScore, getRatings: getRatings, uniqueRaters: uniqueRaters }}>
       {children}
     </DataContext.Provider>
   );
