@@ -1,3 +1,25 @@
 #rating-component{
     width: 100%;
 }
+.oreo-holder{
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+.oreo-holder > * {
+    flex: 3;
+    box-sizing: border-box;
+}
+.oreo-rating-image > img{
+    object-fit: contain;
+    width: 70%;
+    margin: auto;
+}
+.oreo-rating-name{
+    text-align: left;
+    flex: 2;
+}
+.oreo-rating-rating{
+    text-align: right;
+    flex:1;
+}

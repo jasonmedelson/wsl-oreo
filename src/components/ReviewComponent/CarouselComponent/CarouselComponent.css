@@ -52,6 +52,19 @@
     right: 10px;
 }
 
+.left-arrow,
+.right-arrow {
+    /* ... existing styles ... */
+    transition: transform 0.2s ease;
+    transform-origin: center;
+}
+
+.left-arrow.clicked,
+.right-arrow.clicked {
+    transform: scale(1.2) translateY(-50%);
+    filter: brightness(60);
+    transform-origin: top;
+}
 .left-arrow:hover,
 .right-arrow:hover {
     background-color: rgba(255, 255, 255, 0.9);

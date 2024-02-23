@@ -13,7 +13,7 @@ const CarouselComponent = ({ images, onImageChange }) => {
 
     const goToPrevious = () => {
         setClicked({ ...clicked, left: true });
-        setTimeout(() => setClicked({ ...clicked, left: false }), 200);
+        setTimeout(() => setClicked({ ...clicked, left: false }), 100);
         const isFirstImage = currentIndex === 0;
         const newIndex = isFirstImage ? images.length - 1 : currentIndex - 1;
         setCurrentIndex(newIndex);
@@ -21,7 +21,7 @@ const CarouselComponent = ({ images, onImageChange }) => {
 
     const goToNext = () => {
         setClicked({ ...clicked, right: true });
-        setTimeout(() => setClicked({ ...clicked, right: false }), 200);
+        setTimeout(() => setClicked({ ...clicked, right: false }), 100);
         const isLastImage = currentIndex === images.length - 1;
         const newIndex = isLastImage ? 0 : currentIndex + 1;
         setCurrentIndex(newIndex);
