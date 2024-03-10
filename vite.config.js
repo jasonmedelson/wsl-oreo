@@ -7,10 +7,7 @@ export default defineConfig({
   server: {
     port: 8080 // specify the port here
   },
-  build: {
-    minify: 'esbuild', // ensure esbuild is used for minification
-    esbuild: {
-      drop: ['console', 'debugger'], // drop console and debugger statements
-    },
-  },
+  esbuild: {
+    drop: ['console', 'debugger'],
+  },  
 })
