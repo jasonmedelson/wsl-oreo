@@ -3,17 +3,21 @@ import DataContext from '../context/DataContext.jsx';
 import "./Main.css"
 import ReviewComponent from './ReviewComponent/ReviewComponent.jsx';
 import RatingsComponent from './RatingComponent/RatingComponent.jsx';
+import { useLocation, useNavigate } from 'react-router-dom';
 import NewOreo from './NewOreo/NewOreo.jsx';
 const MainComponent = () => {
     const [showAdmin, setShowAdmin] = useState(false);
-    const { firestoreData } = useContext(DataContext);
+    const { firestoreData, currentPage, changePage } = useContext(DataContext);
     const [keysPressed, setKeysPressed] = useState({});
-    const [currentPage, setCurrentPage] = useState('review');
+    // const [currentPage, setCurrentPage] = useState('review');
     const reviewButtonRef = useRef(null);
     const ratingsButtonRef = useRef(null);
     const indicatorRef = useRef(null);
+    let location = useLocation();
+    let navigate = useNavigate();
     console.log(firestoreData)
     const handleKeyDown = (event) => {
+        console.log(event.key?.toLowerCase())
         try {
             if (showAdmin) { return }
             setKeysPressed(prev => ({ ...prev, [event.key?.toLowerCase()]: true }));
@@ -37,7 +41,11 @@ const MainComponent = () => {
             console.error(error)
         }
     };
-
+    useEffect(() => {
+        if (location.pathname === '/ratings') {
+            changePage("ratings")
+        }
+    })
     useEffect(() => {
         window.addEventListener('keydown', handleKeyDown);
         window.addEventListener('keyup', handleKeyUp);
@@ -103,13 +111,18 @@ const MainComponent = () => {
                 <button
                     ref={reviewButtonRef}
                     className={`left-button ${currentPage === 'review' ? 'active' : ''}`}
-                    onClick={() => setCurrentPage('review')}>
+                    onClick={() => {
+                        if(location.pathname == '/ratings'){
+                            navigate("/")
+                        }
+                        changePage('review')
+                    }}>
                     Review
                 </button>
                 <button
                     ref={ratingsButtonRef}
                     className={`right-button ${currentPage === 'ratings' ? 'active' : ''}`}
-                    onClick={() => setCurrentPage('ratings')}>
+                    onClick={() => changePage('ratings')}>
                     Ratings
                 </button>
                 <span className="indicator" ref={indicatorRef}></span>

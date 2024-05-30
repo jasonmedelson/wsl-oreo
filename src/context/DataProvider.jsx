@@ -4,6 +4,7 @@ import { db, storage } from '../firebase/firebase';
 import { collection, query, onSnapshot, addDoc, where } from "firebase/firestore";
 
 const DataProvider = ({ children }) => {
+  const [currentPage, setCurrentPage] = useState('review');
   const [data, setData] = useState([]);
   const [ratingsData, setRatingsData] = useState([]);
   const [uniqueRaters, setUniqueRaters] = useState([]);
@@ -49,6 +50,9 @@ const DataProvider = ({ children }) => {
       return false;
     }
   };
+  const updatePage = (page) => {
+    setCurrentPage(page);
+  }
 
   // Function to add a new document to Ratings collection
   const addScore = async (oreo, name, score) => {
@@ -72,7 +76,7 @@ const DataProvider = ({ children }) => {
   };
 
   return (
-    <DataContext.Provider value={{ firestoreData: data, storageData: storage, newData: addDocument, addScore: addScore, getRatings: getRatings, uniqueRaters: uniqueRaters }}>
+    <DataContext.Provider value={{ firestoreData: data, storageData: storage, newData: addDocument, addScore: addScore, getRatings: getRatings, uniqueRaters: uniqueRaters, currentPage:currentPage, changePage:updatePage }}>
       {children}
     </DataContext.Provider>
   );

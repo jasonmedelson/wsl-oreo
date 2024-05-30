@@ -8,6 +8,6 @@ export default defineConfig({
     port: 8080 // specify the port here
   },
   esbuild: {
-    drop: ['console', 'debugger'],
+    // drop: ['console', 'debugger'],
   },  
 })
