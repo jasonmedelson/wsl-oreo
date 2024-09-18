@@ -23,3 +23,58 @@
     text-align: right;
     flex:1;
 }
+#ratings-controls{
+    display: flex;
+    justify-content: space-between;
+}
+.filter-input {
+    width: 35%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 2px solid #333;
+    border-radius: 5px;
+    font-size: 16px;
+    display: flex;
+}
+#rating-sort-select {
+    font-family: Arial, sans-serif; /* Use a neutral, modern font */
+    color: #fff; /* White text for contrast */
+    width: 55%;
+    display: flex;
+    justify-content: left;
+    height: 42px;
+    align-items: center;
+
+}
+  
+  /* Label styling */
+#rating-sort-select label {
+    margin-right: 10px; /* Space between label and select box */
+}
+  
+  /* Select box styling */
+#rating-sort-select select {
+    padding: 10px;
+    width: 40%; /* Adjust width as needed*/
+    border-radius: 5px;
+    border: 1px solid #444; /* Darker border for better visibility on dark backgrounds */
+    outline: none;
+    cursor: pointer;
+    background: #333; /* Dark background similar to the modal */
+    color: #fff; /* Text color */
+    appearance: none; /* Disable native UI */
+}
+  
+  /* Option styling */
+#rating-sort-select option {
+    background: #666; /* Lighter background for options for better readability */
+    color: #fff;
+}
+  
+  /* Custom dropdown arrow using background image */
+#rating-sort-select select {
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M7%2010l5%205%205-5H7z%22%20fill%3D%22%23FFF%22/%3E%3C/svg%3E');
+    background-repeat: no-repeat;
+    background-position: right 10px center; /* Positioning the arrow to the right */
+    background-size: 15px; /* Resize arrow as needed */
+}

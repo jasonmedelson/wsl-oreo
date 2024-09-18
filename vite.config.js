@@ -5,7 +5,11 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   server: {
-    port: 8080 // specify the port here
+    port: 8080, // specify the port here
+    watch: {
+      usePolling: true, // This helps in certain environments like Docker or WSL
+    },
+    hmr: true,
   },
   esbuild: {
     // drop: ['console', 'debugger'],
