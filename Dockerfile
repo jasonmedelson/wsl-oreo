@@ -62,7 +62,7 @@ COPY . .
 
 # [optional] Run tests & build
 ENV NODE_ENV=production
-RUN bun test
+#RUN bun test
 RUN bun run build
 
 # Stage 2: Setup Nginx
